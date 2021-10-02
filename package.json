@@ -1,9 +1,11 @@
 {
   "name": "@yunfengsay/data-serve",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "快捷指令传图",
   "main": "index.js",
-  "bin": "control.sh",
+  "bin": {
+    "data-serve": "control.sh"
+  },
   "scripts": {
     "start": "node index.js",
     "postinstall": "pixl-boot install --name fileserveforshare",
