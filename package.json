@@ -1,0 +1,32 @@
+{
+  "name": "@yunfeng/data-serve",
+  "version": "1.0.0",
+  "description": "快捷指令传图",
+  "main": "index.js",
+  "bin": "control.sh",
+  "scripts": {
+    "start": "node index.js",
+    "postinstall": "pixl-boot install --name fileserveforshare",
+    "preuninstall": "pixl-boot uninstall --name fileserveforshare"
+  },
+  "author": "yunfeng",
+  "license": "ISC",
+  "dependencies": {
+    "heic-convert": "^1.2.4",
+    "pixl-boot": "^2.0.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yunfengsay/data-serve.git"
+  },
+  "keywords": [
+    "share",
+    "data"
+  ],
+  "bugs": {
+    "url": "https://github.com/yunfengsay/data-serve/issues"
+  },
+  "homepage": "https://github.com/yunfengsay/data-serve#readme",
+  "__npminstall_done": false
+}
