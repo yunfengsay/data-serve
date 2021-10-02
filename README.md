@@ -5,7 +5,10 @@
 ```bash
 sudo npm i  @yunfengsay/data-serve -g
 ```
-会自动创建一个开机启动任务，这个开机启动任务会监听 45531 端口，并提供一个 post /uploads api，该api可以接收文件上传任务并且保存到 ~/Pictures 文件夹下
+1. 会自动创建一个开机启动任务，这个开机启动任务会监听 45531 端口
+2. 并提供一个 post /uploads api，该api可以接收文件上传任务并且保存到 ~/Pictures 文件夹下
+3. 提供了一个 post /shareclipboard api, 接收 {"data": "粘贴板内容"} 的格式数据并把data的内容写入到系统粘贴板上
+
 
 ios下的快捷指令
 https://www.icloud.com/shortcuts/84ae3d6f0e6c4fffb128619fe6914e75
