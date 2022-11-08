@@ -1,13 +1,18 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
+	"log"
+	"math/rand"
 	"net/http"
+	"os"
+	"os/user"
+
 	"golang.design/x/clipboard"
-  "math/rand"
-  "os/user"
-  "encoding/json"
 )
+
 // get current user home directory
 func getUserHomeDir() string {
   usr, err := user.Current()
@@ -32,11 +37,26 @@ func generateRandomString() string {
   return string(b)
 }
 
+func saveFile(path string, req *http.Request ) {
+  f, err := os.Create(path) 
+  if err != nil {
+    log.Fatal(err)
+  }
+  defer f.Close()
+  _, err = io.Copy(f, req.Body)
+  if err != nil {
+    log.Fatal(err)
+  }
+  fmt.Println("image downloaded")
+  
+}
+
 func uploads(w http.ResponseWriter, req *http.Request) {
   picDir := getPicturePath()
   fileName := generateRandomString()
   picPath :=  picDir + "/" + fileName
   fmt.Fprintf(w, "uploads\n" + picPath)
+  saveFile(picPath, req)
 }
 
 type ShareClipboardReq struct {
